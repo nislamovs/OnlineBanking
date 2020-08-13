@@ -1,0 +1,10 @@
+Add mappers for DTO/DAO
+Add Flyway
+Add testcontainers
+Write tests
+Rewrite FE part [admin] on Angular 7+
+
+Setup docker compose
+Add docker healthcheck
+Change date to localdate
+create db

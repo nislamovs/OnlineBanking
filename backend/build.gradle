@@ -1,0 +1,99 @@
+buildscript {
+	buildDir = './build'
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath "gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.22.1"
+		classpath "io.freefair.gradle:lombok-plugin:4.1.6"
+		classpath "mysql:mysql-connector-java:6.0.6"
+	}
+}
+
+plugins {
+	id "io.freefair.lombok" version "4.1.6"
+	id 'org.springframework.boot' version '2.3.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'com.palantir.docker' version '0.22.1'
+	id 'com.palantir.docker-run' version '0.22.1'
+	id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "io.freefair.lombok"
+apply plugin: "com.palantir.docker"
+apply plugin: "com.palantir.docker-run"
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'mysql:mysql-connector-java'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+
+}
+
+test {
+	useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+	sourceCompatibility = "1.8"
+	targetCompatibility = "1.8"
+	options.deprecation = true
+	options.encoding = 'UTF-8'
+	options.compilerArgs << "-Xlint:unchecked"
+}
+
+compileJava {
+	options.compilerArgs = [
+			'-Amapstruct.suppressGeneratorTimestamp=true',
+			'-Amapstruct.suppressGeneratorVersionInfoComment=true',
+			'-Amapstruct.defaultComponentmodel=spring'
+	]
+}
+
+bootJar {
+	baseName = 'banking'
+	version =  '1.0.0'
+	mainClassName = 'com.example.banking.JdbcexampleApplication'
+}
+
+task unpack(type: Copy) {
+	dependsOn bootJar
+//        from(zipTree(tasks.bootJar.outputs.files.singleFile))
+	from(zipTree("build/libs/banking-1.0.0.jar"))
+	into("build/dependency")
+}
+
+docker {
+	name "banking"
+	copySpec.from(tasks.unpack.outputs).into("dependency")
+	buildArgs(['DEPENDENCY': "dependency"])
+}
+
+
