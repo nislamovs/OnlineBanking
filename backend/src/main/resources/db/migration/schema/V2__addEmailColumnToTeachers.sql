@@ -1,0 +1,1 @@
+ALTER TABLE teachers ADD COLUMN email VARCHAR(50) UNIQUE AFTER lastname;

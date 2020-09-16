@@ -1,0 +1,12 @@
+insert into teachers (id, firstname, lastname, birthdate) values (1, 'Marshall', 'Dalmon', TO_DATE('09/24/1982', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (2, 'Malvina', 'Woodworth', TO_DATE('05/03/1970', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (3, 'Ludovika', 'Dagon', TO_DATE('02/25/1963', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (4, 'Jameson', 'Ludlom', TO_DATE('02/14/1979', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (5, 'Melonie', 'Doveston', TO_DATE('03/22/1971', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (6, 'Arin', 'Marcinkowski', TO_DATE('08/12/1970', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (7, 'Lise', 'Prevost', TO_DATE('07/15/1982', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (8, 'Carine', 'Willimott', TO_DATE('04/04/1962', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (9, 'Thorn', 'Joscelin', TO_DATE('08/17/1964', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (10, 'Kinsley', 'Bullingham', TO_DATE('07/21/1973', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (11, 'Torry', 'Croke', TO_DATE('08/31/1981', '%m/%d/%Y'));
+insert into teachers (id, firstname, lastname, birthdate) values (12, 'Adrian', 'Dobrowolski', TO_DATE('08/19/1972', '%m/%d/%Y'));

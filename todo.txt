@@ -8,3 +8,8 @@ Setup docker compose
 Add docker healthcheck
 Change date to localdate
 create db
+
+
+Prepare README file. Mention tech stack.
+
+Create separate Dockerfiles for each service

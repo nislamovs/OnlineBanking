@@ -1,0 +1,12 @@
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.gmail.com') WHERE id = 1;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.gmail.com') WHERE id = 2;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.gmail.com') WHERE id = 3;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.inbox.lv') WHERE id = 4;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.inbox.lv') WHERE id = 5;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.inbox.lv') WHERE id = 6;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.10minutesmail.com') WHERE id = 7;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.10minutesmail.com') WHERE id = 8;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.10minutesmail.com') WHERE id = 9;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.10minutesmail.com') WHERE id = 10;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.yahoo.com') WHERE id = 11;
+UPDATE teachers t SET email = CONCAT(t.firstname, '@', t.lastname, '.yahoo.com') WHERE id = 12;
